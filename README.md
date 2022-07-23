@@ -1,4 +1,4 @@
-# Graph NFT Marketplace FCC
+# NFT Marketplace (Subgraph) - TheGraph:
 
 # Quickstart
 
@@ -53,3 +53,5 @@ Back in your hardhat project, mint and list an NFT with:
 ```
 yarn hardhat run scripts/mint-and-list-item.js --network rinkeby
 ```
+
+# Thank you
