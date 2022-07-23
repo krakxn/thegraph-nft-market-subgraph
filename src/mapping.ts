@@ -11,19 +11,23 @@ export function handleItemListed(event: ItemListedEvent): void {
     let itemListed = ItemListed.load(
         getIdFromEventParams(event.params.tokenId, event.params.nftAddress)
     )
+    
     let activeItem = ActiveItem.load(
         getIdFromEventParams(event.params.tokenId, event.params.nftAddress)
     )
+    
     if (!itemListed) {
         itemListed = new ItemListed(
             getIdFromEventParams(event.params.tokenId, event.params.nftAddress)
         )
     }
+    
     if (!activeItem) {
         activeItem = new ActiveItem(
             getIdFromEventParams(event.params.tokenId, event.params.nftAddress)
         )
     }
+    
     itemListed.seller = event.params.seller
     activeItem.seller = event.params.seller
 
@@ -46,14 +50,17 @@ export function handleItemCanceled(event: ItemCanceledEvent): void {
     let itemCanceled = ItemCanceled.load(
         getIdFromEventParams(event.params.tokenId, event.params.nftAddress)
     )
+    
     let activeItem = ActiveItem.load(
         getIdFromEventParams(event.params.tokenId, event.params.nftAddress)
     )
+    
     if (!itemCanceled) {
         itemCanceled = new ItemCanceled(
             getIdFromEventParams(event.params.tokenId, event.params.nftAddress)
         )
     }
+    
     itemCanceled.seller = event.params.seller
     itemCanceled.nftAddress = event.params.nftAddress
     itemCanceled.tokenId = event.params.tokenId
@@ -67,14 +74,17 @@ export function handleItemBought(event: ItemBoughtEvent): void {
     let itemBought = ItemBought.load(
         getIdFromEventParams(event.params.tokenId, event.params.nftAddress)
     )
+    
     let activeItem = ActiveItem.load(
         getIdFromEventParams(event.params.tokenId, event.params.nftAddress)
     )
+    
     if (!itemBought) {
         itemBought = new ItemBought(
             getIdFromEventParams(event.params.tokenId, event.params.nftAddress)
         )
     }
+    
     itemBought.buyer = event.params.buyer
     itemBought.nftAddress = event.params.nftAddress
     itemBought.tokenId = event.params.tokenId
